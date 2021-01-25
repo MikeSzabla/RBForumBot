@@ -5,6 +5,13 @@ from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 
 
+class User:
+    def __init__(self, username, used_links, id):
+        self.username = username
+        self.used_links = used_links
+        self.id = id
+
+
 def main():
     # login to forum -> verify that logged in -> create link list -> go through list one-by-one (check against cache)
     browser = webdriver.Chrome()
@@ -13,23 +20,30 @@ def main():
     links = get_links(browser, 10)
 
     username = browser.find_element_by_id('current-user').find_element_by_class_name('icon').get_attribute('href')[30:]
+    current_user = init_user(username)
 
-    #links = filter_list(links, username)
+    #links = filter_list(links, current_user)
+
     for link in links:
         read(browser, link)
-        cache(link, username)
+        cache(link, current_user)
+
     browser.quit()
 
 
 # open log in page, wait until logged in
 def login(browser):
+    # TODO: This is hella scuffed rn. Add a check to make sure the user is logged in and on a valid page
     browser.get('https://www.roblox.com/login?returnUrl=https://apis.roblox.com/application-authorization/v1/authorize%3Fclient_id%3De7eec6fe-31bd-4b83-be99-f1fd2cabfafb%26scope%3Dopenid+profile+email%26response_type%3Dcode%26redirect_uri%3Dhttps%3A%2F%2Fdevforum.roblox.com%2Fauth%2Foidc%2Fcallback%26state%3De4ea1dc7803b0de76393db5459c7113ef0742abaaa5d04db%26nonce%3D5a637872caf2a748de3aa633be8297232ef0bad3c639d1c09778a4d17259d42a')
     print("Log In.")
     b = input('After logging in, type anything and enter to continue: ')
 
 
+# get_links: returns a list of forum links retrieved from a table on the forum.
+# Takes in a browser driver object and a value max_scroll, which determines a max amount of screen lengths to
+# scroll down on the infinite page.
 def get_links(browser, max_scroll):
-    scroll_pause_time = 3
+    scroll_pause_time = 1
     i = 1
     # finds the initial bottom value of the page and the current Y-Offset of the page
     bottom = browser.execute_script("return document.body.scrollHeight;")
@@ -77,25 +91,34 @@ def read(browser, link):
     like_button = browser.find_element_by_class_name('header-buttons')
 
 
+def init_user(username):
+    with open('cache.json') as f:
+        data = json.load(f)
+    users = data['users']
+
+    found = False
+    index = 0
+    for entry in users:
+        if entry['username'] == username:
+            current_user = User(username, entry['used-links'], index)
+            found = True
+            break
+        else:
+            index += 1
+
+    if not found:
+        current_user = User(username, [], index)
+
+    return current_user
+
+
 def cache(link, username):
-    with open('cache.json') as f:
-        data = json.load(f)
-    users = data['users']
-    current_user = {'username': '', 'used-links': []}
-    for user in users:
-        if user['username'] == username:
-            print('found him')
+    # TODO: use the current_user instance to append the link to their used_links then update cache.json
+    pass
 
 
-def test():
-    with open('cache.json') as f:
-        data = json.load(f)
-    users = data['users']
-    current_user = {'username': '', 'used-links': []}
-    for user in users:
-        if user['username'] == 'xxbladeartxx':
-            print('found him')
+def test(given_user):
+    pass
 
 
 # main()
-test()
