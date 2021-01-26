@@ -86,7 +86,7 @@ def filter_list(links, username):  # takes in a list of links, uses cache to mak
     return filtered_list
 
 
-def read(browser, link):
+def read(browser, link):  # used the browser and given link to open the page and slowly scroll through to bottom
     browser.get(link)
     like_button = browser.find_element_by_class_name('header-buttons')
 
