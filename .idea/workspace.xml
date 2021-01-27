@@ -60,11 +60,19 @@
       <option name="project" value="LOCAL" />
       <updated>1611555901161</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added comment to read function">
+      <created>1611641796454</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611641796454</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial transfer of files from home desktop onto GitHub" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial transfer of files from home desktop onto GitHub" />
+    <MESSAGE value="Added comment to read function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added comment to read function" />
   </component>
 </project>

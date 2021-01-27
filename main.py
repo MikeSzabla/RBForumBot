@@ -6,10 +6,13 @@ from bs4 import BeautifulSoup
 
 
 class User:
-    def __init__(self, username, used_links, id):
+    def __init__(self, username, used_links, index):
         self.username = username
         self.used_links = used_links
-        self.id = id
+        self.index = index
+
+    def print_info(self):
+        print('Username: {} Index in file: {}'.format(self.username, self.index))
 
 
 def main():
@@ -122,3 +125,5 @@ def test(given_user):
 
 
 # main()
+test_user = init_user('anyone else')
+test_user.print_info()
