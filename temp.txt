@@ -7,14 +7,6 @@
     {
       "username": "xxbladeartxx",
       "used-links": []
-    },
-    {
-      "username": "anyone else",
-      "used-links": []
-    },
-    {
-      "username": "newname",
-      "used-links": []
     }
   ]
 }

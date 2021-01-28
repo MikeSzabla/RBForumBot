@@ -14,6 +14,9 @@ class User:
     def print_info(self):
         print('Username: {} Index in file: {}'.format(self.username, self.index))
 
+    def get_dict(self):
+        return {"username": self.username, "used-links": self.used_links}
+
 
 def main():
     # login to forum -> verify that logged in -> create link list -> go through list one-by-one (check against cache)
@@ -94,7 +97,7 @@ def read(browser, link):  # used the browser and given link to open the page and
     like_button = browser.find_element_by_class_name('header-buttons')
 
 
-def init_user(username):
+def init_user(username):  # initialized the current_user object and updates the cache if necessary
     with open('cache.json') as f:
         data = json.load(f)
     users = data['users']
@@ -111,6 +114,10 @@ def init_user(username):
 
     if not found:
         current_user = User(username, [], index)
+        user_dict = current_user.get_dict()
+        users.append(user_dict)
+        with open('cache.json', 'w') as f:
+            json.dump(data, f, indent=2)
 
     return current_user
 
@@ -125,5 +132,5 @@ def test(given_user):
 
 
 # main()
-test_user = init_user('anyone else')
+test_user = init_user('newname')
 test_user.print_info()

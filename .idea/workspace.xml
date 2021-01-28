@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9441286b-3606-490b-9f12-2fe461538a5c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/temp.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/cache.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,12 +69,20 @@
       <option name="project" value="LOCAL" />
       <updated>1611641796454</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added a print info method to the user class and tested the functionality of init_user">
+      <created>1611728953526</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611728953526</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial transfer of files from home desktop onto GitHub" />
     <MESSAGE value="Added comment to read function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comment to read function" />
+    <MESSAGE value="Added a print info method to the user class and tested the functionality of init_user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a print info method to the user class and tested the functionality of init_user" />
   </component>
 </project>
