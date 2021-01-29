@@ -1,21 +1,22 @@
 import time
 import json
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+# from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 
 
 class User:
-    def __init__(self, username, used_links, index):
+    def __init__(self, username, used_links, index, last_y_offset):
         self.username = username
         self.used_links = used_links
         self.index = index
+        self.last_y_offset = last_y_offset
 
     def print_info(self):
         print('Username: {} Index in file: {}'.format(self.username, self.index))
 
     def get_dict(self):
-        return {"username": self.username, "used-links": self.used_links}
+        return {"username": self.username, "used_links": self.used_links}
 
 
 def main():
@@ -134,3 +135,5 @@ def test(given_user):
 # main()
 test_user = init_user('newname')
 test_user.print_info()
+
+

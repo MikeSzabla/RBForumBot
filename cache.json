@@ -2,19 +2,13 @@
   "users": [
     {
       "username": "lesscollective",
-      "used-links": []
+      "used_links": [],
+      "last_y_offset": ""
     },
     {
       "username": "xxbladeartxx",
-      "used-links": []
-    },
-    {
-      "username": "anyone else",
-      "used-links": []
-    },
-    {
-      "username": "newname",
-      "used-links": []
+      "used_links": [],
+      "last_y_offset": ""
     }
   ]
 }
