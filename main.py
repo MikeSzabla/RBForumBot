@@ -123,14 +123,20 @@ def init_user(username):  # initialized the current_user object and updates the 
     return current_user
 
 
-def cache(link, username):
-    # TODO: use the current_user instance to append the link to their used_links then update cache.json
-    pass
+def cache(link, current_user):
+    with open('cache.json') as f:
+        data = json.load(f)
+    users = data['users']
+
+    # potential issue: will the current_user's used_link list be consistent outside of the function?
+    current_user.used_links.append(link)
+    users[current_user.index] = current_user.get_dict
+    with open('cache.json', 'w') as f:
+        json.dump(data, f, indent=2)
 
 
 def test(given_user):
     pass
-
 
 # main()
 test_user = init_user('newname')
