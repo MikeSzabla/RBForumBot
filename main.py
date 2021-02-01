@@ -95,6 +95,33 @@ def filter_list(links, username):  # takes in a list of links, uses cache to mak
 
 def read(browser, link):  # used the browser and given link to open the page and slowly scroll through to bottom
     browser.get(link)
+
+    scroll_pause_time = 1
+    i = 1
+    # finds the initial bottom value of the page and the current Y-Offset of the page
+    bottom = browser.execute_script("return document.body.scrollHeight;")
+    current_pos = browser.execute_script("return window.pageYOffset") + browser.execute_script(
+        'return document.documentElement.clientHeight')
+    while True:
+        # uses difference in bottom and current_pos to scroll
+        browser.execute_script("window.scrollBy(0, {})".format(bottom-current_pos))
+        i += 1
+        time.sleep(scroll_pause_time)
+
+        # updates bottom and current_pos to new values
+        bottom = browser.execute_script("return document.body.scrollHeight;")
+        current_pos = browser.execute_script("return window.pageYOffset") + browser.execute_script(
+            'return document.documentElement.clientHeight')
+
+        # Breaks if bottom is reached or max amount of scrolls is exceeded
+        print('i is {} current_pos is {} bottom is {}'.format(i, current_pos, bottom))
+        if current_pos == bottom:
+            print('broken because end of page')
+            break
+        if i > max_scroll:
+            print('broken because limit reached')
+            break
+
     like_button = browser.find_element_by_class_name('header-buttons')
 
 
