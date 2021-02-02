@@ -118,9 +118,6 @@ def read(browser, link):  # used the browser and given link to open the page and
         if current_pos == bottom:
             print('broken because end of page')
             break
-        if i > max_scroll:
-            print('broken because limit reached')
-            break
 
     like_button = browser.find_element_by_class_name('header-buttons')
 
