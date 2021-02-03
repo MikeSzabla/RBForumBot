@@ -87,9 +87,11 @@ def get_links(browser, max_scroll):
     return links
 
 
-def filter_list(links, username):  # takes in a list of links, uses cache to make sure there are no duplicates
-    filtered_list = links
+def filter_list(links, current_user):  # takes in a list of links, uses cache to make sure there are no duplicates
     # TODO: read in cache, compare against links, return link entries with no match
+    filtered_list = links
+    current_list = current_user.used_links
+
     return filtered_list
 
 

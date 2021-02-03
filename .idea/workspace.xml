@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9441286b-3606-490b-9f12-2fe461538a5c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611988093741</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adjusted read method">
+      <created>1612241702643</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612241702643</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -105,6 +113,7 @@
     <MESSAGE value="-Added get_dict method to user class&#10;-init_user method now adds new entries into cache if a new username is detected" />
     <MESSAGE value="added cache support for last_y_offset" />
     <MESSAGE value="added base of cache method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added base of cache method" />
+    <MESSAGE value="adjusted read method" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjusted read method" />
   </component>
 </project>
